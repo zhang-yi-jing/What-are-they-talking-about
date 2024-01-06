@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 public class GameManager : MonoBehaviour
 {
     KeyCode pauseKey = KeyCode.B; // ÔÝÍ£¼ü
@@ -7,6 +8,15 @@ public class GameManager : MonoBehaviour
 
     private bool isPaused = false; // ÓÎÏ·ÊÇ·ñÒÑÔÝÍ£
 
+    private Inventory inventory;
+
+    [SerializeField] private UIInventory uIInventoy;
+
+    private void Awake()
+    {
+        inventory = new Inventory();
+        uIInventoy.SetInventory(inventory);
+    }
     void Update()
     {
         // ¼ì²âÊÇ·ñ°´ÏÂÔÝÍ£¼ü
