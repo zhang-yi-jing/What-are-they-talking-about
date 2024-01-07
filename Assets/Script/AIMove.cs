@@ -9,7 +9,6 @@ public class AIMove : MonoBehaviour
     int index = 0;
 
     public float movementSpeed = 5f; // 移动速度
-    public float rotationSpeed = 5f; // 旋转速度
 
     void Start()
     {
@@ -20,13 +19,6 @@ public class AIMove : MonoBehaviour
     {
         // 计算玩家的运动方向
         Vector2 moveDirection = (target.position - transform.position).normalized;
-
-        // 计算玩家的目标角度
-        float targetAngle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
-
-        // 平滑插值旋转
-        float currentAngle = Mathf.LerpAngle(transform.rotation.eulerAngles.z, targetAngle, rotationSpeed * Time.deltaTime);
-        transform.rotation = Quaternion.AngleAxis(currentAngle, Vector3.forward);
 
         // 更新位置
         Vector3 newPosition = transform.position + (Vector3)moveDirection * movementSpeed * Time.deltaTime;

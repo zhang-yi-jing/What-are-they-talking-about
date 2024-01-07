@@ -1,13 +1,21 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
+    private float moveHorizontal;
+    private float moveVertical;
+    private bool canMove = true;
+    public List<Transform> restrictedAreas;
 
     private void Update()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
+        if (!canMove)
+            return;
+
+        moveHorizontal = Input.GetAxis("Horizontal");
+        moveVertical = Input.GetAxis("Vertical");
 
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
@@ -37,6 +45,19 @@ public class PlayerMovement : MonoBehaviour
 
         Vector2 movement = new Vector2(moveHorizontal, moveVertical);
         movement.Normalize();
+
+        // 获取角色下一步的位置
+        Vector3 nextPosition = transform.position + new Vector3(movement.x, movement.y, 0f) * moveSpeed * Time.deltaTime;
+
+        // 检查下一步的位置是否在任一限制区域内
+        foreach (Transform area in restrictedAreas)
+        {
+            if (area.GetComponent<Collider2D>().bounds.Contains(nextPosition))
+            {
+                // 如果在限制区域内，不进行移动
+                return;
+            }
+        }
 
         transform.Translate(movement * moveSpeed * Time.deltaTime);
     }

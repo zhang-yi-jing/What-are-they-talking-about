@@ -1,9 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Get : MonoBehaviour
+public class GetGoods : MonoBehaviour
+
 {
     private Inventory inventory;
+    private void Start()
+    {
+        inventory = FindObjectOfType<Inventory>();
+    }
 
     public void AddItemToInventory(ItemWorld itemWorld)
     {

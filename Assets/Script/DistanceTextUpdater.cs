@@ -26,17 +26,32 @@ public class DistanceTextUpdater : MonoBehaviour
         if (distance < goodDistance)
         {
             textMesh.text = goodText;
-            specifiedButton.gameObject.SetActive(true); // 激活指定按钮
+
+            // 检查指定按钮是否存在并激活
+            if (specifiedButton != null)
+            {
+                specifiedButton.gameObject.SetActive(true);
+            }
         }
         else if (distance >= goodDistance && distance <= greatDistance)
         {
             textMesh.text = greatText;
-            specifiedButton.gameObject.SetActive(false); // 禁用指定按钮
+
+            // 检查指定按钮是否存在并禁用
+            if (specifiedButton != null)
+            {
+                specifiedButton.gameObject.SetActive(false);
+            }
         }
         else
         {
             textMesh.text = defaultText;
-            specifiedButton.gameObject.SetActive(false); // 禁用指定按钮
+
+            // 检查指定按钮是否存在并禁用
+            if (specifiedButton != null)
+            {
+                specifiedButton.gameObject.SetActive(false);
+            }
         }
     }
 }

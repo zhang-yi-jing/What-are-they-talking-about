@@ -6,7 +6,7 @@ public class Item
 {
     public enum ItemType
     {
-        Sword,
+        good,
         Coin,
     }
 
@@ -18,7 +18,7 @@ public class Item
         switch (itemType)
         {
             default:
-            case ItemType.Sword: return ItemAssets.Instance.swordSprite;
+            case ItemType.good: return ItemAssets.Instance.GoodSprite;
             case ItemType.Coin: return ItemAssets.Instance.coinSprite;
         }
     }

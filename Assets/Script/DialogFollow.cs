@@ -13,7 +13,7 @@ public class DialogFollow : MonoBehaviour
         if (followTarget != null)
         {
             // 计算目标上方1米的位置
-            Vector3 targetPosition = followTarget.position + Vector3.up * 0.2f;
+            Vector3 targetPosition = followTarget.position + Vector3.up * 0.8f;
 
             // 将目标位置转换为屏幕坐标
             Vector3 screenPosition = Camera.main.WorldToScreenPoint(targetPosition);

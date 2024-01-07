@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
@@ -14,7 +12,7 @@ public class Inventory : MonoBehaviour
     {
         itemList = new List<Item>();
 
-        AddItem(new Item { itemType = Item.ItemType.Sword, amount = 1 });
+        AddItem(new Item { itemType = Item.ItemType.good, amount = 1 });
         AddItem(new Item { itemType = Item.ItemType.Coin, amount = 1 });
         //Debug.Log("66");
     }
