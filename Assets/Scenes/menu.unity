@@ -419,7 +419,7 @@ MonoBehaviour:
   canvas: {fileID: 318466907}
   prefab: {fileID: 7164146481158204202, guid: 4186f0851a43cc94ca1d9be8823487aa, type: 3}
   fadeDuration: 1
-  nextSceneName: first level
+  nextSceneName: menu to first
 --- !u!1 &246624781
 GameObject:
   m_ObjectHideFlags: 0
